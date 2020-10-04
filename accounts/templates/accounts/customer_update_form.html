@@ -1,0 +1,28 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+<style>
+    .form-rounded {
+        border-radius: 1 rem;
+    }
+</style>
+<br>
+<div class="center-column">
+            <div class="card card-body">
+                <form enctype="multipart/form-data" action="" method="POST">
+                    {% csrf_token %}
+                        {% for field in form %}
+                        <div class="form-group">
+                            {{ field.label }}
+                            {{ field }}
+                            
+                        </div>
+                        {% endfor %}
+                    <hr>
+                    <input class="btn btn-sm btn-success" type="submit" name="submit">
+                </form>
+            </div>
+    {% endblock %}
+</div>
